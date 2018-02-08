@@ -17,6 +17,12 @@ public:
   double Ki;
   double Kd;
 
+  double all_square_error;
+  int num;
+  double mean_error;
+
+  double result;
+
   /*
   * Constructor
   */
