@@ -3,6 +3,24 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## Describe the effect each of the P,I,D components had in your implmentation
+- **Proportional component(P):Makes the car steer towards the CTE. It is achieved by multiplying the CTE by P values. It will never reach the CTE but will oscillate around it,resulting in an unsecure behaviour.That's the reason to use I and D terms.
+- **Integral component(I):Compensates the systematic bias.When the car steering has been incorrectly fixed,bias to the left,the I term should compensate it. This is achieved accumulating the value of the surface between the car position and the CTE over time, and multiplying this value by the I coefficient.
+- **Differential component (D):Counter-steers when the car begins to steer toward the CTE.It goes smaller as the car drives towards the CTE,avoiding P component tendency to overshpot or ring the center line.
+
+## Describe how the final hyperparameters were chosen
+To see the effect of each component,I added the parameters one by one.The initial values were 
+- **p = -0.25
+- **I = -0.00023
+- **D = -4.5
+for throttle
+- **p = -0.65
+- **I = -0.0003
+- **D = -6.5
+
+## Result
+You can observe the result in this [video](result.mp4).
+
 ## Dependencies
 
 * cmake >= 3.5
@@ -99,3 +117,5 @@ A well written README file can enhance your project and portfolio.  Develop your
 # CarND-PID-Control-Project
 # CarND-PID-Control-Project
 # CarND-PID-Control-Project
+
+
