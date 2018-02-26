@@ -9,6 +9,13 @@ Self-Driving Car Engineer Nanodegree Program
 - **Differential component (D):Counter-steers when the car begins to steer toward the CTE.It goes smaller as the car drives towards the CTE,avoiding P component tendency to overshpot or ring the center line.
 
 ## Describe how the final hyperparameters were chosen
+At first,I tried to use the twiddle algorithm to tune the PID,but it gives me a solution that converts PID control into a kind of bad control.For the reson I tried to follow the heuristic used commonly to manually tune a PID control for a line follower machine:
+- Set all the gains to zero
+- Increase only Kp (Proportional gain) to get an ultimate oscillating value Kp(max).
+- Increase Kd (Derivative gain) until the oscillations disappear.
+- Loop steps 2 and 3 until increasing Kd dose not dampen the oscillations.
+- At the end, increase Ki(Integral gain) to get a good system with the desired number of oscillations(Ideally zero).
+
 To see the effect of each component,I added the parameters one by one.The initial values were 
 - **p = -0.25
 - **I = -0.00023
